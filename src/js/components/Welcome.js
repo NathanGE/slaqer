@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import history from '../helpers/history';
 
 export default class Welcome extends React.Component {
   componentWillMount() {
@@ -11,6 +12,12 @@ export default class Welcome extends React.Component {
     ];
 
     this.message =  _.sample(messages);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      history.pushState(null, "sign-up");
+    }, 2000);
   }
 
   render() {

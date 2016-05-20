@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
   };
 }
 
-@connect(mapStateToProps);
+@connect(mapStateToProps)
 
 class SignUp extends React.Component {
   submit(e) {

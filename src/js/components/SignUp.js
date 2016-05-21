@@ -1,6 +1,7 @@
 import React from 'react';
 import {reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 const getParams = (form, fields) => {
   if(form === undefined) {
@@ -28,7 +29,19 @@ const mapStateToProps = (state) => {
 
 class SignUp extends React.Component {
   submit(e) {
-    console.log(this.props.signup);
+    const userAttributes = {
+      user: {
+        nickname: this.props.signup.nickname,
+        email:    this.props.signup.email,
+        password: this.props.signup.password
+      }
+    };
+    const url = "http://slackr-api.thefirehoseproject.com/33c638d9ddd88eac2fdc/users";
+    const result = axios.post(url, userAttributes);
+    this.props.dispatch({
+      type: "LOAD_CURRENT_USER",
+      payload: result
+    });
     e.preventDefault();
   }
   render() {

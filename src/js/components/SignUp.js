@@ -2,6 +2,7 @@ import React from 'react';
 import {reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import history from '../helpers/history';
 
 const getParams = (form, fields) => {
   if(form === undefined) {
@@ -42,6 +43,8 @@ class SignUp extends React.Component {
       type: "LOAD_CURRENT_USER",
       payload: result
     });
+
+    history.pushState(null, "messages");
     e.preventDefault();
   }
   render() {

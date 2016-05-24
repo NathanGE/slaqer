@@ -6,10 +6,12 @@ import SignUpForm from '../components/SignUpForm';
 import signUp from '../actions/SignUp';
 import { bindActionCreators } from 'redux';
 import getParams from '../helpers/getParams';
+import _ from 'lodash';
 
 const mapStateToProps = (state) => {
   return {
-    "signup" : getParams(state.form.signup, ['nickname', 'email', 'password'])
+    "signup": getParams(state.form.signup, ['nickname', 'email', 'password']),
+    "currentUser": state.currentUser
   };
 }
 
@@ -32,12 +34,22 @@ export default class SignUp extends React.Component {
 
     this.props.signUp(userAttributes);
 
-    history.pushState(null, "messages");
     e.preventDefault();
   }
+
+  componentWillReceiveProps(nextProps) {
+    if(_.isNumber(nextProps.currentUser.id)) {
+      history.pushState(null, "messages");
+    }
+  }
+
+
   render() {
     return (
-      <SignUpForm submit={(e) => {this.submit(e); }} />
+      <SignUpForm
+        submit={(e) => {this.submit(e); }}
+        currentUser={this.props.currentUser}
+      />
     );
   }
 }

@@ -4,6 +4,16 @@ import {reduxForm} from 'redux-form';
 class SignUpForm extends React.Component {
   render() {
     const {fields: {email, nickname, password}, submit} = this.props;
+    const errors = this.props.currentUser.errors;
+    let nicknameErrors = '';
+
+    if(errors !== undefined && errors.nickname !== undefined && errors.nickname.length > 0) {
+      nicknameErrors = (
+        <div className="error">
+          {this.props.currentUser.errors.nickname[0]}
+        </div>
+      );
+    }
     return (
       <div className="card col-xs-6 col-xs-offset-3">
         <h1 className="text-center">Sign up for Slaqer</h1>
@@ -11,6 +21,7 @@ class SignUpForm extends React.Component {
           <div className="col-xs-6 col-xs-offset-3">
             <label>Enter Your <strong>Nickname</strong></label>
             <input type="text" className="form-control" placeholder="Nickname" { ...nickname }/>
+            {nicknameErrors}
             <label>Enter Your <strong>Email</strong></label>
             <input type="text" className="form-control" placeholder="Email" { ...email } />
             <label>Enter Your <strong>Password</strong></label>

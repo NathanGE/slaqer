@@ -5,22 +5,7 @@ import history from '../helpers/history';
 import SignUpForm from '../components/SignUpForm';
 import signUp from '../actions/SignUp';
 import { bindActionCreators } from 'redux';
-
-const getParams = (form, fields) => {
-  if(form === undefined) {
-    return {};
-  }
-  let params = {};
-  for(let field of fields) {
-    const fieldValue = form[field];
-    if(fieldValue) {
-      params[field] = fieldValue.value;
-    } else {
-      params[field] = '';
-    }
-  }
-  return params;
-};
+import getParams from '../helpers/getParams';
 
 const mapStateToProps = (state) => {
   return {

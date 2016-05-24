@@ -1,6 +1,7 @@
 import React from 'react';
 import {reduxForm} from 'redux-form';
 import InputField from './InputField';
+import { Link } from 'react-router';
 
 class SignUpForm extends React.Component {
   render() {
@@ -40,7 +41,7 @@ class SignUpForm extends React.Component {
           <br className="clear"/>
 
           <div className="text-center orSignIn">
-            <a href="javascript:void(0);">Sign In</a>
+            <Link to='sign-in'>Sign In</Link>
           </div>
         </form>
       </div>

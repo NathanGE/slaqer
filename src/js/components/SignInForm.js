@@ -10,7 +10,7 @@ class SignInForm extends React.Component {
     return (
       <div className="card col-xs-6 col-xs-offset-3">
         <h1 className="text-center">Sign In to Slack</h1>
-          <form className="sign-up-form">
+          <form className="sign-up-form" onSubmit={this.props.submit}>
             <div className="form-group text-center col-sm-6 col-sm-offset-3">
               <InputField 
                 type="text"

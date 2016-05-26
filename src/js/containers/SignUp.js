@@ -3,7 +3,7 @@ import {reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import history from '../helpers/history';
 import SignUpForm from '../components/SignUpForm';
-import signUp from '../actions/SignUp';
+import signUp from '../actions/signUp';
 import { bindActionCreators } from 'redux';
 import getParams from '../helpers/getParams';
 import _ from 'lodash';

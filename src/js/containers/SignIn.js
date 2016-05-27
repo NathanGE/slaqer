@@ -7,7 +7,8 @@ import { bindActionCreators } from 'redux';
 
 const mapStateToProps = (state) => {
   return {
-    "signin": getParams(state.form.signin, ['email', 'password'])
+    "signin": getParams(state.form.signin, ['email', 'password']),
+    "currentUser": state.currentUser
   }
 };
 
@@ -36,6 +37,7 @@ export default class SignIn extends React.Component {
     return (
       <SignInForm 
         submit={ (e) => {this.submit(e); }}
+        currentUser={this.props.currentUser}
       />
     );
   }

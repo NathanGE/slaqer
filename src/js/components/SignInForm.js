@@ -5,7 +5,7 @@ import InputField from './InputField';
 class SignInForm extends React.Component {
   render() {
     const {fields: {email, nickname, password} } = this.props;
-    const errors = {};
+    const errors = this.props.currentUser.errors || {};
 
     return (
       <div className="card col-xs-6 col-xs-offset-3">

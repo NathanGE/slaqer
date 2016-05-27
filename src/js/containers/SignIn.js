@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import getParams from '../helpers/getParams';
 import signIn from '../actions/signIn';
 import { bindActionCreators } from 'redux';
+import _ from 'lodash';
+import history from '../helpers/history';
 
 const mapStateToProps = (state) => {
   return {
@@ -31,6 +33,12 @@ export default class SignIn extends React.Component {
     this.props.signIn(signInAttributes);
 
     e.preventDefault();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(_.isNumber(nextProps.currentUser.id)) {
+      history.pushState(null, "messages");
+    }
   }
   
   render() {

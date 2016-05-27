@@ -9,9 +9,9 @@ import SignIn from '../containers/SignIn';
 
 export default (
   <Route path="/" component={ApplicationLayout}>
-    <Route path="sign-up" component={SignUp} />
+    <Route path="welcome" component={Welcome} />
     <Route path="messages" component={ChatWindow}/>
     <Route path="sign-in" component={SignIn}/>
-    <IndexRoute component={Welcome} />
+    <IndexRoute component={SignUp} />
   </Route>
 );

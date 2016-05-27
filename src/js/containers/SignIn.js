@@ -37,7 +37,7 @@ export default class SignIn extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(_.isNumber(nextProps.currentUser.id)) {
-      history.pushState(null, "messages");
+      history.pushState(null, "welcome");
     }
   }
   

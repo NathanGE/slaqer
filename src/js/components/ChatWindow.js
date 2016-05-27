@@ -5,7 +5,12 @@ export default class ChatWindow extends React.Component {
     return (
       <div>
         <h2 className="text-center">Hello, Signed In User</h2>
+        <p onClick={() => { this.signOut(); }}>Sign Out</p>
       </div>
     );
+  }
+
+  signOut() {
+    localStorage.removeItem("currentUser");
   }
 }

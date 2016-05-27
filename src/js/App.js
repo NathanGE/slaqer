@@ -12,6 +12,7 @@ import {reducer as formReducer} from 'redux-form';
 import history from './helpers/history';
 import ReduxPromise from 'redux-promise';
 import currentUser from './reducers/currentUser';
+import createUserSubscriber from './helpers/createUserSubscriber';
 
 const reduxApp = combineReducers({
   form: formReducer,
@@ -35,4 +36,5 @@ const render = () => {
 $(function() {
   render();
   store.subscribe(render);
+  store.subscribe(createUserSubscriber(store.getState));
 });

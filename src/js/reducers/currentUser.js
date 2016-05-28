@@ -6,6 +6,9 @@ const currentUser = (state = {}, action) => {
     case "SET_CURRENT_USER":
     return action.user;
 
+    case "SIGN_OUT_CURRENT_USER":
+    return {};
+
     default:
     return state;
   }

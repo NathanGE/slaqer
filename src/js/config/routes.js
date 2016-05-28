@@ -4,7 +4,7 @@ import ApplicationLayout from '../components/layouts/ApplicationLayout';
 import Router from'react-router';
 import {Route, IndexRoute} from'react-router';
 import SignUp from '../containers/SignUp';
-import ChatWindow from '../components/ChatWindow';
+import ChatWindow from '../containers/ChatWindow';
 import SignIn from '../containers/SignIn';
 
 export default (

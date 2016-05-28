@@ -13,6 +13,7 @@ import history from './helpers/history';
 import ReduxPromise from 'redux-promise';
 import currentUser from './reducers/currentUser';
 import createUserSubscriber from './helpers/createUserSubscriber';
+import syncCurrentUserFromLocalStorage from './helpers/syncCurrentUserFromLocalStorage';
 
 const reduxApp = combineReducers({
   form: formReducer,
@@ -37,4 +38,5 @@ $(function() {
   render();
   store.subscribe(render);
   store.subscribe(createUserSubscriber(store.getState));
+  syncCurrentUserFromLocalStorage(store.dispatch);
 });

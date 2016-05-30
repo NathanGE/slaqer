@@ -4,6 +4,7 @@ import signOut from '../actions/signOut';
 import {bindActionCreators} from 'redux';
 import _ from 'lodash';
 import history from '../helpers/history';
+import ChatPane from '../components/ChatPane';
 
 const mapStateToProps = (state) => {
   return {
@@ -20,10 +21,9 @@ const mapStateToProps = (state) => {
 export default class ChatWindow extends React.Component {
   render() {
     return (
-      <div>
-        <h2 className="text-center">Hello, Signed In User</h2>
-        <p onClick={() => { this.signOut(); }}>Sign Out</p>
-      </div>
+      <ChatPane
+        signOut={() => {this.signOut();}}
+      />
     );
   }
 

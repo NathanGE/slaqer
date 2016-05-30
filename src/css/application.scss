@@ -109,3 +109,125 @@ form .error {
   margin-top:4px;
   font-weight:bold;
 }
+
+.side-pane {
+  background: #4D5250;
+  width: 200px;
+  height: 100%;
+  float:left;
+  color:white;
+  overflow-y:scroll;
+  padding:10px;
+}
+
+.side-pane .nickname {
+  font-size: 14px;
+  font-weight:200;
+  color:#C6C7C7;
+  float:left;
+  margin-top:5px;
+  margin-left:8px;
+}
+
+.chat-window {
+  height: -moz-calc(100vh - 50px); /* Firefox */
+  height: -webkit-calc(100vh - 50px); /* Chrome, Safari */
+  height: calc(100vh - 50px); /* IE9+ and future browsers */
+}
+
+.team-name {
+  font-family: Lato, appleLogo, sans-serif;
+  font-weight:700;
+  font-size:20px;
+  margin-bottom:2px;
+}
+
+.green-circle {
+  height:10px;
+  width:10px;
+  border-radius: 100%;
+  background-color:#96CD49;
+  float:left;
+  margin-top:12px;
+}
+
+.channels {
+  clear:both;
+  color:#EEE;
+  font-size: 13px;
+  padding-top:20px;
+  font-weight:400;
+}
+
+.channels .header {
+  opacity: 0.6;
+}
+
+.channels .number {
+  color: #999999;
+}
+
+.hashtag {
+  float:left;
+  font-weight: 200;
+  opacity: 0.6;
+}
+
+.channelName {
+  float: left;
+  font-weight: bold;
+  color: white;
+  opacity: 1;
+  margin-left: 4px;
+}
+
+.channelList {
+  margin-top:10px;
+  font-size: 16px;
+}
+
+.users {
+  clear:both;
+  padding-top:20px;
+}
+
+.users .header {
+  float: left;
+  color: white;
+  opacity: 1;
+  margin-left: 4px;
+  opacity: 0.6;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.users .header .number {
+  opacity: 0.4;
+  font-weight:200;
+}
+
+.user-status {
+  clear:both;
+  padding-top: 6px;
+  padding-left: 12px;
+}
+
+.user-status .nickname {
+  font-size:15px;
+  font-weight:300;
+}
+
+.inactive-circle {
+  height:10px;
+  width:10px;
+  border-radius: 100%;
+  border-color: #FFF;
+  opacity: 0.6;
+  border: 2px solid #CCC;
+  float:left;
+  margin-top:11px;
+}
+
+.nickname.inactive {
+  font-style: italic;
+}

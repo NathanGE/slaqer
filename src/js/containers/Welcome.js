@@ -1,6 +1,11 @@
 import React from 'react';
 import _ from 'lodash';
 import history from '../helpers/history';
+import axios from 'axios';
+import urlFor from '../helpers/urlFor';
+import {connect} from 'react-redux';
+
+@connect()
 
 export default class Welcome extends React.Component {
   componentWillMount() {
@@ -12,6 +17,13 @@ export default class Welcome extends React.Component {
     ];
 
     this.message =  _.sample(messages);
+
+    const url = urlFor("/users");
+    const result = axios.get(url);
+    this.props.dispatch({
+      type: "SET_USERS",
+      payload: result
+    });
   }
 
   componentDidMount() {

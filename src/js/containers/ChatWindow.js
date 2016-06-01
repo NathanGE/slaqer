@@ -8,7 +8,8 @@ import ChatPane from '../components/ChatPane';
 
 const mapStateToProps = (state) => {
   return {
-    "currentUser": state.currentUser
+    "currentUser": state.currentUser,
+    "users": state.users
   }
 };
 
@@ -20,16 +21,11 @@ const mapStateToProps = (state) => {
 
 export default class ChatWindow extends React.Component {
   render() {
-    const users = [
-      {status: 'active', nickname: 'marco', id: 1},
-      {status: 'active', nickname: 'ken', id: 2},
-      {status: 'inactive', nickname: 'takehiro', id: 3}
-    ];
-
     return (
       <ChatPane
         signOut={() => {this.signOut();}}
-        users={users}
+        users={this.props.users}
+        currentUser={this.props.currentUser}
       />
     );
   }

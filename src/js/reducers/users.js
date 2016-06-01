@@ -1,5 +1,5 @@
 const users = (state = [], action) => {
-  switch (action.type) {
+  switch(action.type) {
     case "SET_USERS":
     return action.payload.data;
     default:

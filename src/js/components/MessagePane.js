@@ -1,8 +1,45 @@
 import React from 'react';
+import Message from './Message';
 import avatar from '../../img/avatar.png';
 
 export default class MessagePane extends React.Component {
   render() {
+    const messages = [
+      {
+        id: 1,
+        nickname: "marco",
+        time: "11:15AM",
+        messages: ["Happy Monday Everyone", "Hope everyone is awesome"],
+        avatar_url: avatar
+      },
+      {
+        id: 2,
+        nickname: "ken",
+        time: "11:16AM",
+        messages: ["Sup, Marco?"],
+        avatar_url: avatar
+      },
+      {
+        id: 3,
+        nickname: "takehiro",
+        time: "11:19AM",
+        messages: ["Hi Everyone!"],
+        avatar_url: avatar
+      }
+    ];
+
+    const messageJsx = messages.map((message, index) => {
+      return (
+        <Message
+          nickname={message.nickname}
+          time={message.time}
+          messages={message.messages}
+          key={index}
+          avatar_url={message.avatar_url}
+        />
+      );
+    });
+
     return (
       <div className="message-pane container-fluid">
         <div className="header row">
@@ -16,65 +53,9 @@ export default class MessagePane extends React.Component {
             <i className="glyphicon glyphicon-log-out" onClick={() => {this.props.signOut();}}></i>
           </div>
 
-          {/* hard coded messages */}
           <div className="messageList row container-fluid">
-            
-            <div className="message row">
-              <div className="avatar">
-                <img src={avatar} />
-              </div>
-              <div className="text">
-                <div className="top-message">
-                  marco
-                  <span className="time">
-                    11:15AM
-                  </span>
-                </div>
-              </div>
-              <p>
-                Happy Monday Everyone
-              </p>
-              <p>
-                Hope everyone is awesome
-              </p>
-            </div>
-            
-            <div className="message row">
-              <div className="avatar">
-                <img src={avatar} />
-              </div>
-              <div className="text">
-                <div className="top-message">
-                  ken
-                  <span className="time">
-                    11:16AM
-                  </span>
-                </div>
-              </div>
-              <p>
-                Sup, Marco?
-              </p>
-            </div>
-
-            <div className="message row">
-              <div className="avatar">
-                <img src={avatar} />
-              </div>
-              <div className="text">
-                <div className="top-message">
-                  takehiro
-                  <span className="time">
-                    11:19AM
-                  </span>
-                </div>
-              </div>
-              <p>
-                Hello Everyone
-              </p>
-            </div>
-
+            {messageJsx}
           </div>
-
         </div>
       </div>
     );

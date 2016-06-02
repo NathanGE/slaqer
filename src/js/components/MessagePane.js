@@ -4,31 +4,8 @@ import avatar from '../../img/avatar.png';
 
 export default class MessagePane extends React.Component {
   render() {
-    const messages = [
-      {
-        id: 1,
-        nickname: "marco",
-        time: "11:15AM",
-        messages: ["Happy Monday Everyone", "Hope everyone is awesome"],
-        avatar_url: avatar
-      },
-      {
-        id: 2,
-        nickname: "ken",
-        time: "11:16AM",
-        messages: ["Sup, Marco?"],
-        avatar_url: avatar
-      },
-      {
-        id: 3,
-        nickname: "takehiro",
-        time: "11:19AM",
-        messages: ["Hi Everyone!"],
-        avatar_url: avatar
-      }
-    ];
 
-    const messageJsx = messages.map((message, index) => {
+    const messageJsx = this.props.messages.map((message, index) => {
       return (
         <Message
           nickname={message.nickname}

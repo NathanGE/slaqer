@@ -1,5 +1,6 @@
 import React from 'react';
 import SidePane from './SidePane';
+import MessagePane from './MessagePane';
 
 export default class ChatPane extends React.Component {
   render() {
@@ -9,10 +10,10 @@ export default class ChatPane extends React.Component {
           users={this.props.users}
           currentUser={this.props.currentUser}
         />
-        <div className="pull-left">
-          <h2 className="text-center">Hello Signed In User</h2>
-          <p onClick={() => { this.props.signOut(); }}>Sign Out</p>
-        </div>
+        <MessagePane
+          signOut={this.props.signOut}
+          userCount={this.props.users.length}
+        />
       </div>
     );
   }

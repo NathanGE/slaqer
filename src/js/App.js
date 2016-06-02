@@ -15,11 +15,13 @@ import currentUser from './reducers/currentUser';
 import createUserSubscriber from './helpers/createUserSubscriber';
 import syncCurrentUserFromLocalStorage from './helpers/syncCurrentUserFromLocalStorage';
 import users from './reducers/users';
+import messages from './reducers/messages';
 
 const reduxApp = combineReducers({
   form: formReducer,
   currentUser: currentUser,
-  users: users
+  users: users,
+  messages: messages
 });
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);

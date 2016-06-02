@@ -4,6 +4,7 @@ import history from '../helpers/history';
 import {connect} from 'react-redux';
 import loadUsers from '../actions/loadUsers';
 import {bindActionCreators} from 'redux';
+import loadMessages from '../actions/loadMessages';
 
 const mapStateToProps = (state) => {
   return {};
@@ -12,7 +13,7 @@ const mapStateToProps = (state) => {
 @connect(
   mapStateToProps,
   dispatch => ({
-    ...bindActionCreators({loadUsers}, dispatch)
+    ...bindActionCreators({loadUsers, loadMessages}, dispatch)
   })
 )
 
@@ -27,6 +28,7 @@ export default class Welcome extends React.Component {
 
     this.message =  _.sample(messages);
     this.props.loadUsers();
+    this.props.loadMessages();
   }
 
   componentDidMount() {

@@ -6,12 +6,15 @@ import _ from 'lodash';
 import history from '../helpers/history';
 import ChatPane from '../components/ChatPane';
 import avatar from '../../img/avatar.png';
+import getParams from '../helpers/getParams';
 
 const mapStateToProps = (state) => {
   return {
     "currentUser": state.currentUser,
     "users": state.users,
-    "messages": state.messages
+    "messages": state.messages,
+    "chatMessage": getParams(state.form.chatMessage, ['message'])
+
   }
 };
 
@@ -29,6 +32,7 @@ export default class ChatWindow extends React.Component {
         users={this.props.users}
         currentUser={this.props.currentUser}
         messages={this.props.messages}
+        addMessage={() => { this.addMessage(); }}
       />
     );
   }
@@ -37,6 +41,10 @@ export default class ChatWindow extends React.Component {
     if(!_.isNumber(nextProps.currentUser.id)) {
       history.pushState(null, "/");
     }
+  }
+
+  addMessage() {
+    console.log(this.props.chatMessage);
   }
 
   signOut() {

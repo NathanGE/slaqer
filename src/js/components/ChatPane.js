@@ -14,6 +14,7 @@ export default class ChatPane extends React.Component {
           signOut={this.props.signOut}
           userCount={this.props.users.length}
           messages={this.props.messages}
+          addMessage={this.props.addMessage}
         />
       </div>
     );

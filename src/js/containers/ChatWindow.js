@@ -7,6 +7,7 @@ import history from '../helpers/history';
 import ChatPane from '../components/ChatPane';
 import avatar from '../../img/avatar.png';
 import getParams from '../helpers/getParams';
+import addMessage from '../actions/addMessage';
 
 const mapStateToProps = (state) => {
   return {
@@ -20,7 +21,7 @@ const mapStateToProps = (state) => {
 
 @connect(mapStateToProps,
   dispatch => ({
-    ... bindActionCreators({signOut}, dispatch)
+    ... bindActionCreators({ signOut, addMessage }, dispatch)
   })
 )
 
@@ -38,13 +39,22 @@ export default class ChatWindow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(!_.isNumber(nextProps.currentUser.id)) {
+    if(! _.isNumber(nextProps.currentUser.id)) {
       history.pushState(null, "/");
     }
   }
 
   addMessage() {
-    console.log(this.props.chatMessage);
+    const chatMessage = {
+      chat_message: {
+        body: this.props.chatMessage.message
+      }
+    };
+
+    this.props.addMessage(
+      chatMessage,
+      this.props.currentUser
+    );
   }
 
   signOut() {

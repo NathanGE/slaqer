@@ -20,6 +20,7 @@ export default class ApplicationLayout extends React.Component {
           </nav>
 
           {this.props.children}
+          
         </div>
       </div>
     );

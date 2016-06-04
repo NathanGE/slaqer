@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 @connect(
   mapStateToProps,
   dispatch => ({
-    ...bindActionCreators({ signUp }, dispatch)
+    ... bindActionCreators({ signUp }, dispatch)
   })
 )
 
@@ -42,7 +42,6 @@ export default class SignUp extends React.Component {
       history.pushState(null, "welcome");
     }
   }
-
 
   render() {
     return (

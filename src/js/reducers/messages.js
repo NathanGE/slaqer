@@ -10,18 +10,15 @@ const messages = (state = [], action) => {
     // action.payload.data
     const message = action.payload.data;
     if(state.length > 0 && message.user_id === state[state.length - 1].user_id){
-      // The last message was sent by the same user.  Keep
+      // The last message was sent by the same user. Keep
       // the wrapper data, but rebuild the last item in the
       // state to include the new `message.body`.
       const lastMessage = state[state.length - 1];
-      
       const allButLastMessage = _.initial(state);
-      
       const newLastMessage = {
         ...lastMessage,
         messages: [...lastMessage.messages, message.body]
       };
-
       return [...allButLastMessage, newLastMessage];
     } else {
       const newFullMessage = {
@@ -31,7 +28,6 @@ const messages = (state = [], action) => {
         time: "now",
         avatar_url: message.avatar_url
       };
-
       return [...state, newFullMessage];
     }
     

@@ -1,6 +1,6 @@
-# Firehose React WebPack Front-end
+# Slaqer - A Slack clone application using React, Redux, and the Transcendence generator for build/tooling.
 
-WebPack is an amazing tool that provides an awesome developer experience after initial setup.  This is my base configuration for a web application that runs with:
+[Transcendence](https://github.com/kenmazaika/generator-transcendence) has the following base configuration:
 
 * WebPack
 * React
@@ -11,5 +11,3 @@ WebPack is an amazing tool that provides an awesome developer experience after i
 * Babel
 
 And also supports WebPackDevServer.
-
-This project is meant to transcend the web.  Transcendence.

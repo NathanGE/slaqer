@@ -1,4 +1,4 @@
-# Slaqer
+# [Slaqer](http://slaqer.herokuapp.com)
 A Slack clone application using React, Redux, and the Transcendence generator for build/tooling.
 
 [Transcendence](https://github.com/kenmazaika/generator-transcendence) has the following base configuration:
